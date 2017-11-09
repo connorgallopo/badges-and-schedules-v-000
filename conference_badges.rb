@@ -5,7 +5,7 @@ end
 
 def batch_badge_creator(attendees)
   welcome_messages = []
-  attendees.to_a.each do |names|
+  attendees.each do |names|
     welcome_messages.push("Hello, my name is #{names}.")
   end
   welcome_messages
@@ -22,7 +22,7 @@ end
 
 def printer(attendees)
   attendees.each_with_index do |attendee, i|
-    puts batch_badge_creator(attendee)
+    puts badge_maker(attendee)
     puts assign_rooms(attendee)
   end
 end
