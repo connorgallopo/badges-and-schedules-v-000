@@ -14,7 +14,7 @@ end
 def assign_rooms(attendees)
   messages = []
 
-  [attendees].each_with_index do |attendee, i|
+  attendees.each_with_index do |attendee, i|
     messages.push("Hello, #{attendee}! You'll be assigned to room #{i+1}!")
   end
   messages
@@ -22,7 +22,14 @@ end
 
 def printer(attendees)
   attendees.each_with_index do |attendee, i|
-    puts badge_maker(attendee)
-    puts assign_rooms(attendee)
-  end
+ x = attendees.length
+ counter = 0
+ loop do
+   puts batch_badge_creator(attendees)[counter]
+   puts assign_rooms(attendees)[counter]
+  counter += 1
+   if counter == x
+     break
+   end
+ end
 end
